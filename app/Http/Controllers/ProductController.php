@@ -8,14 +8,15 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return "show all products";
+        return view('product.index'); //vista que mostrara todos los productos
     }
     public function create()
     {
-        return "create product with id";
+        return view('product.create');
     }
+
     public function show($idProduct)
     {
-        return "show product with id: $idProduct";
+        return view('product.show', compact('idProduct'));
     }
 }
