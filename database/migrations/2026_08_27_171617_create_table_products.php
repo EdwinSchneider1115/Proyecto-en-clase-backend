@@ -17,6 +17,8 @@ return new class extends Migration
             $table->text('description');
             $table->decimal('price');
             $table->timestamps();
+
+            $table->foreignId('category_id')->references('id')->on('categories');
         });
     }
 
