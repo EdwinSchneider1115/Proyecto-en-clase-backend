@@ -48,27 +48,6 @@
                 </div>
             </div>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=600&h=400&fit=crop" alt="F-16 Fighting Falcon" class="product-image">
-                <div class="product-info">
-                    <div class="product-category">Moderno - Jet</div>
-                    <h3 class="product-title">F-16 Fighting Falcon</h3>
-                    <p class="product-description">Caza polivalente de 4ta generación, uno de los más exitosos del mundo</p>
-                    <div class="product-price">$18,000,000</div>
-                    <a href="{{ url('/product/2') }}" class="btn btn-success">Ver Detalles</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Supermarine_Spitfire_Mk_Vb_EP120.jpg/640px-Supermarine_Spitfire_Mk_Vb_EP120.jpg" alt="Supermarine Spitfire" class="product-image">
-                <div class="product-info">
-                    <div class="product-category">WWII - Caza</div>
-                    <h3 class="product-title">Supermarine Spitfire Mk IX</h3>
-                    <p class="product-description">Icono de la Batalla de Inglaterra, diseño elegante y letal</p>
-                    <div class="product-price">$3,200,000</div>
-                    <a href="{{ url('/product/3') }}" class="btn btn-success">Ver Detalles</a>
-                </div>
-            </div>
         </div>
 
         <div style="text-align: center; margin-top: 3rem;">
