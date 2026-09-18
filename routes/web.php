@@ -1,14 +1,20 @@
 <?php
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
-Route::resource('products', ProductController::class);
+// --- ACCESO PÚBLICO (Solo consulta) ---
+Route::get('/', [ProductController::class, 'index'])->name('product.index');
+Route::get('/product', [ProductController::class, 'index'])->name('product.index'); // <-- ¡ESTA ERA LA QUE FALTABA!
+Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
 
-Route::get('/', HomeController::class); //landing page del ecommerce
-Route::prefix('product')->controller(ProductController::class)->group(function () {
-    Route::get('/', 'index'); //mostrar todos los productos
-    Route::get('/create', 'create'); //formulario para crear un producto
-    Route::get('/{idProduct}', 'show'); //detalle de un producto
+// --- ACCESO RESTRINGIDO (Requiere iniciar sesión) ---
+Route::middleware(['auth'])->group(function () {
+    Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
+    Route::post('/product', [ProductController::class, 'store'])->name('product.store');
+    Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
+    Route::put('/product/{product}', [ProductController::class, 'update'])->name('product.update');
+    Route::delete('/product/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
 });
+
+require __DIR__.'/auth.php';
